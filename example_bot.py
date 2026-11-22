@@ -113,7 +113,7 @@ def decide(o):
         pitch = math.atan2((tz + 4.5) - (pz + 7.0), hd)
         a["aim"] = [yaw, pitch]
 
-        if g and g["ammo"] > 0 and d < 210:
+        if g and g["ammo"] > 0 and d < 120:
             fire[0] = True
         if g and g["ammo"] == 0 and g.get("reload", 0) == 0:
             a["reload"] = True
@@ -145,9 +145,9 @@ def decide(o):
             ST["next_flip"] = tick + 10 + (tick * 7919) % 8
         ux, uy = norm(tx - px, ty - py)
         perp = (-uy * ST["sign"], ux * ST["sign"])
-        if d < 35:
+        if d < 70:
             cmx, cmy = -ux * 0.7 + perp[0] * 0.8, -uy * 0.7 + perp[1] * 0.8
-        elif d < 110:
+        elif d < 130:
             cmx, cmy = perp[0] * 0.9 + mx * 0.3, perp[1] * 0.9 + my * 0.3
         else:
             cmx, cmy = mx * 0.7 + perp[0] * 0.4, my * 0.7 + perp[1] * 0.4
